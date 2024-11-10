@@ -1,2 +1,4 @@
 # Array_Methods
-Learn some basic and efficient array methods.
+// Learn some basic and efficient array methods.
+
+// Understand CallBack pattern and Array.forEach method.
