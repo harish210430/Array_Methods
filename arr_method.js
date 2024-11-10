@@ -1,5 +1,4 @@
 // Lecture 1.
-
 // Basic Array Methods:
 
 // flat(num_para): It is used to convert multi-dimentional Array to 1-D Array / flat Array.
@@ -70,10 +69,11 @@ console.log(alnums);
 // console.log(forEachElement(allnumbers));
 
 
-// Methods:
+// Methods: cbfn is a func. refence,
 // 1. Array.forEach(cbfn_para): forEach is an Array method, accept a cbfn And allows to run that cbfn for each element of the Array. 
 // forEach() method does not return Anyrhing.
 
+// forEach() method is a HOF becoz it accept cbfn.
 function log(i) {
     console.log(i);
 }
@@ -87,3 +87,31 @@ allnumbers.forEach(function(num) {
 
 // callBack with Arrow_func. inside forEach
 allcolors.forEach((col) => console.log(col));
+
+
+
+// forEach, map, filter Methods : they all give u access to all three elements (number, index, array) But index, array two are optional paras,But forEach does't return Anything.
+
+// Lecture 3:-  Array.map & Array.filter Method:
+
+// Array.map - It also accept a cbfn, And calls that callBack func. with 3 values (number, idx, arr) it always returns a same size of new array.
+allnumbers = [1, 3, 9, 19, 30, 90, 89, 12];
+
+// function double(number, idx, Array) {   // idx, Array are optional.
+function double(number) {
+    // console.log(number, idx, Array);
+    // return number * 2;
+    // When u do not return anything , it return undefined And Store it to new Array.
+}
+let doubleNumbers = allnumbers.map(double);
+console.log(doubleNumbers);
+
+
+// Array.filter() - is a method to filter out some values, also accept cbfn And calls that callBack func. with 3 values (number, idx, arr) and return new Array.
+
+function isEven(num) {
+    // return num % 2 === 0;  
+    // When u do not return anything, func. return undefined And this func. is'nt understand undefined So it convert Boolean(undefined) = false, whenEver u return a falsy value it's an Empty Array [].
+}
+ let evenNumbers = allnumbers.filter(isEven);
+console.log(evenNumbers);
