@@ -4,3 +4,5 @@
 // Understand CallBack pattern and Array.forEach method.
 
 // knowning Array.map & Array.filter method. 
+
+// Use Array.find, Array.findIndex And Array.some, Array.every

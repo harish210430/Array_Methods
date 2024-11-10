@@ -90,7 +90,7 @@ allcolors.forEach((col) => console.log(col));
 
 
 
-// forEach, map, filter Methods : they all give u access to all three elements (number, index, array) But index, array two are optional paras,But forEach does't return Anything.
+// forEach, map, filter, find, Methods : they all give u access to all three elements (number, index, array) But index, array two are optional paras,But forEach does't return Anything.
 
 // Lecture 3:-  Array.map & Array.filter Method:
 
@@ -115,3 +115,46 @@ function isEven(num) {
 }
  let evenNumbers = allnumbers.filter(isEven);
 console.log(evenNumbers);
+
+
+
+// Lecture 4:- Array.find & Array.findIndex : accept cbfn, they return only one value similar to previous method it also give access to (num, idx, array).
+// Array.find : it return the first value that match the condition.
+// Array.findIndex : return the index of that first value which match the condition.
+allnumbers = [1, 3, 9, 19, 30, 90, 89, 12];
+
+function isNum(num) {
+    return num > 10;
+}
+let findReturn = allnumbers.find(isNum);
+let findIdxReturn = allnumbers.findIndex(isNum);
+console.log(findReturn);  // 19
+console.log(findIdxReturn); // 3
+
+
+
+// Lecture 5:- Array.some & Array.every
+// Array.some : accept cbfn, cbfn needs to return 'true' atleast once for Any element, then the whole func. return "true" otherwise it returns "false".
+let retNum = allnumbers.some(function(num) {
+    return num < 2;
+});
+console.log(retNum); // true
+
+allcolors = ["gold", "silver", "brown", "pink", "black", "orange"];
+let retColor = allcolors.some(function(color) {
+    return color.includes("red"); 
+});
+console.log(retColor); // false
+
+
+// Array.every : accept cbfn, cbfn needs to return 'true' for every elements then whole func. return "true" otherwise it returns "false".
+let evryRetNum = allnumbers.every(function(num) {
+    return num < 100;
+});
+console.log(evryRetNum); // true
+
+let evryColor = allcolors.every(function(color) {
+    return color.includes('e');  // false
+    // return color.length > 3;  // true
+});
+console.log(evryColor); 
