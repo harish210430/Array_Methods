@@ -72,7 +72,7 @@ console.log(alnums);
 // Methods: cbfn is a func. refence,
 // 1. Array.forEach(cbfn_para): forEach is an Array method, accept a cbfn And allows to run that cbfn for each element of the Array. 
 // forEach() method does not return Anyrhing.
-
+   
 // forEach() method is a HOF becoz it accept cbfn.
 function log(i) {
     console.log(i);
@@ -90,7 +90,7 @@ allcolors.forEach((col) => console.log(col));
 
 
 
-// forEach, map, filter, find, Methods : they all give u access to all three elements (number, index, array) But index, array two are optional paras,But forEach does't return Anything.
+// forEach, map, filter, find, Methods : they all accept cbfn & give u access to all three elements (number, index, array) But index, array two are optional paras, And forEach does't return Anything.
 
 // Lecture 3:-  Array.map & Array.filter Method:
 
@@ -99,7 +99,7 @@ allnumbers = [1, 3, 9, 19, 30, 90, 89, 12];
 
 // function double(number, idx, Array) {   // idx, Array are optional.
 function double(number) {
-    // console.log(number, idx, Array);
+    // console.log(number, idx, Array);   
     // return number * 2;
     // When u do not return anything , it return undefined And Store it to new Array.
 }
@@ -111,7 +111,7 @@ console.log(doubleNumbers);
 
 function isEven(num) {
     // return num % 2 === 0;  
-    // When u do not return anything, func. return undefined And this func. is'nt understand undefined So it convert Boolean(undefined) = false, whenEver u return a falsy value it's an Empty Array [].
+    // When u do not return anything, func. return undefined And this (isEven) func. is'nt understand undefined So it convert Boolean(undefined) = false, whenEver u return a falsy value it's an Empty Array [].
 }
  let evenNumbers = allnumbers.filter(isEven);
 console.log(evenNumbers);
@@ -138,7 +138,7 @@ console.log(findIdxReturn); // 3
 let retNum = allnumbers.some(function(num) {
     return num < 2;
 });
-console.log(retNum); // true
+console.log(retNum); // true 
 
 allcolors = ["gold", "silver", "brown", "pink", "black", "orange"];
 let retColor = allcolors.some(function(color) {
@@ -158,3 +158,31 @@ let evryColor = allcolors.every(function(color) {
     // return color.length > 3;  // true
 });
 console.log(evryColor); 
+
+
+
+// Lecture 6:- Array.sort() - accept a compareFunction(Optional) for sorting Numbers Becoz it always does string_comparesion, it return the sorted Array (in Assending / Decending order).
+// For String_Array : to sort in decending order, first sort the array and then reverse it by using:  str_arr.sort.reverse();
+// sort() method always mutates the array.
+
+
+// Precedence Order: "abcdef......xyzABCD.....XYZ"
+allnumbers = [1, 3, 9, 19, 30, 90, 89, 12];
+
+function compareFunction(a, b) {
+    // negative < 0, a
+    // positive > 0, b
+    // 0 , same Rahega
+    return a - b;
+}
+console.log(allnumbers.sort(compareFunction)); // [1, 3, 9, 12, 19, 30, 89, 90]
+console.log(allnumbers);  // mutated [1, 3, 9, 12, 19, 30, 89, 90]
+
+console.log(allcolors.sort().reverse()); // It sorts & reverse the Array_string.
+
+
+// If we don't want to mutate the array then we create a clone of original array then sort it.
+
+let cloneAllNums = [...allnumbers].sort(compareFunction);
+console.log(cloneAllNums); // [1, 3, 9, 12, 19, 30, 89, 90]
+console.log(allnumbers); // [1, 3, 9, 19, 30, 90, 89, 12]

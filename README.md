@@ -6,3 +6,5 @@
 // knowning Array.map & Array.filter method. 
 
 // Use Array.find, Array.findIndex And Array.some, Array.every
+
+// Use Array.sort to sorting Array
