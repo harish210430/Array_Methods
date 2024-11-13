@@ -8,3 +8,5 @@
 // Use Array.find, Array.findIndex And Array.some, Array.every
 
 // Use Array.sort to sorting Array
+
+// Array.reduce to reducing values

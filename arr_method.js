@@ -1,6 +1,7 @@
 // Lecture 1.
 // Basic Array Methods:
 
+
 // flat(num_para): It is used to convert multi-dimentional Array to 1-D Array / flat Array.
 let numbers = [1,2,[3,4,[5,6,[7,8]]]];
 console.log(numbers); 
@@ -90,7 +91,7 @@ allcolors.forEach((col) => console.log(col));
 
 
 
-// forEach, map, filter, find, Methods : they all accept cbfn & give u access to all three elements (number, index, array) But index, array two are optional paras, And forEach does't return Anything.
+// forEach, map, filter, find, some, every, Methods : they all accept cbfn & give u access to all three elements (number, index, array) But index, array two are optional paras, And forEach does't return Anything.
 
 // Lecture 3:-  Array.map & Array.filter Method:
 
@@ -100,7 +101,7 @@ allnumbers = [1, 3, 9, 19, 30, 90, 89, 12];
 // function double(number, idx, Array) {   // idx, Array are optional.
 function double(number) {
     // console.log(number, idx, Array);   
-    // return number * 2;
+    return number * 2;
     // When u do not return anything , it return undefined And Store it to new Array.
 }
 let doubleNumbers = allnumbers.map(double);
@@ -186,3 +187,39 @@ console.log(allcolors.sort().reverse()); // It sorts & reverse the Array_string.
 let cloneAllNums = [...allnumbers].sort(compareFunction);
 console.log(cloneAllNums); // [1, 3, 9, 12, 19, 30, 89, 90]
 console.log(allnumbers); // [1, 3, 9, 19, 30, 90, 89, 12]
+
+
+
+// Lecture 7: Array.reduce(cbfn, initial_value) - accepts two parameter(cbfn, intl_val), In reduce() cbfn, It give u access to 4 elmnts (accumulator, num, i, arr)
+
+// accltr. : first_val = initial_val, cbfn, whatEver it returns become the next val of the accumulator (In hindi: cbfn jo bhi return karega, vo value acc. me replace hogi.) 
+
+// It is used to reducing a collection of values into a diff. shape of values Or into a single value.
+// for Exp: we can reduce using sum of all elements and store into a variable (So it will be a single value). 
+
+let nums = [1, 3, 9, 19, 30, 90, 89, 12];
+
+// let sum = 0;
+// nums.forEach((num) => sum += num);
+// console.log(sum);
+
+
+// Benefit to Use reduce(): hume 1 extra variable ko manage nhi krna padta.
+let sum = nums.reduce((acc, num) => {
+    return acc + num;
+    }, 0);
+console.log(sum);
+
+// allcolors = ["gold", "silver", "brown", "pink", "black", "orange"];
+// let allcolrs = "";
+// allcolors.forEach((color) => allcolrs += color);
+// console.log(allcolrs);
+
+allcolors = ["gold", "silver", "brown", "pink", "black", "orange"];
+
+let allcolrs = allcolors.reduce((acc, color) => {
+    return acc + color + " ";
+} , "");
+console.log(allcolrs);
+
+// reduce() can return Anytype of Data_type(value like: number, string, Arr, obj etc) based on initial_value.
